@@ -8,6 +8,7 @@ export class AppController {
 
   @EventPattern('get_all_items')
   getHello(): string {
+    console.log('get hello!');
     return this.appService.getHello();
   }
 }
