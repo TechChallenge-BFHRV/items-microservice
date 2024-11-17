@@ -1,7 +1,8 @@
-import { Body, Controller } from '@nestjs/common';
+import { Body, Controller, Param } from '@nestjs/common';
 import { AppService } from './app.service';
 import { MessagePattern } from '@nestjs/microservices';
 import { ItemDTO } from './item.dto';
+import { ItemCategory } from './entities/item-categories.entity';
 
 @Controller()
 export class AppController {
@@ -17,5 +18,11 @@ export class AppController {
   @MessagePattern('create_item')
   createItem(@Body() item: ItemDTO) {
     return this.appService.createItem(item);
+  }
+
+  @MessagePattern('get_items_per_category')
+  getItemsPerCategory(category: ItemCategory) {
+    console.log('message pattern claled with category' , category);
+    return this.appService.getItemsPerCategory(category);
   }
 }
