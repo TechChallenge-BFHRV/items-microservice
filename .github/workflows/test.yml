@@ -9,3 +9,5 @@ jobs:
       run: yarn
     - name: Run tests
       run: yarn test
+      env:
+        FORCE_COLOR: true
