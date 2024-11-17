@@ -10,9 +10,8 @@ export class AppController {
   ) {}
 
   @MessagePattern('get_all_items')
-  getHello(): string {
-    console.log('get hello!');
-    return this.appService.getHello();
+  getAllItems() {
+    return this.appService.getAllItems();
   }
 
   @MessagePattern('create_item')

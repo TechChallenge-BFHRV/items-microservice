@@ -1,13 +1,20 @@
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { Item } from './entities/item.entity';
 import { CreateItemUseCase } from './usecases/create-item.usecase';
+import { GetItemUseCase } from './usecases/get-item.usecase';
 @Injectable()
 export class AppService {
   constructor(
     private readonly createItemUseCase: CreateItemUseCase,
+    private readonly getItemUseCase: GetItemUseCase,
   ) {}
-  getHello(): string {
-    return 'Hello Worldsy!';
+  async getAllItems() {
+    const allItems = await this.getItemUseCase.execute();
+    return {
+      statusCode: HttpStatus.OK,
+      message: 'All items retrieved successfully',
+      data: allItems,
+    };
   }
 
   async createItem(item: Item) {

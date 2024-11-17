@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CreateItemUseCase } from './usecases/create-item.usecase';
+import { GetItemUseCase } from './usecases/get-item.usecase';
 import { ItemRepository } from './item.repository';
 import { ItemPrismaRepository } from './item.prisma.repository';
 import { PrismaService } from './prisma.service';
@@ -16,7 +17,8 @@ import { PrismaService } from './prisma.service';
       provide: ItemRepository,
       useClass: ItemPrismaRepository
     },
-    CreateItemUseCase
+    CreateItemUseCase,
+    GetItemUseCase
   ],
 })
 export class AppModule {}
