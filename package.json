@@ -72,6 +72,7 @@
     "coverageDirectory": "../coverage",
     "coveragePathIgnorePatterns": [
         ".entity.ts",
+        ".mapper.ts",
         ".module.ts",
         "main.ts"
     ],
