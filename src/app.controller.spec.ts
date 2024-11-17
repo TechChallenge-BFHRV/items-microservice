@@ -5,6 +5,11 @@ import { CreateItemUseCase } from './usecases/create-item.usecase';
 import { ItemRepository } from './item.repository';
 import { ItemPrismaRepository } from './item.prisma.repository';
 import { PrismaService } from './prisma.service';
+import mockPrismaClient from '../test/prisma.mock';
+
+jest.mock('@prisma/client', () => ({
+  PrismaClient: jest.fn().mockImplementation(() => mockPrismaClient)
+}));
 
 describe('AppController', () => {
   let appController: AppController;
