@@ -6,6 +6,7 @@ import { ItemRepository } from './item.repository';
 import { ItemPrismaRepository } from './item.prisma.repository';
 import { PrismaService } from './prisma.service';
 import mockPrismaClient from '../test/prisma.mock';
+import { GetItemUseCase } from './usecases/get-item.usecase';
 
 jest.mock('@prisma/client', () => ({
   PrismaClient: jest.fn().mockImplementation(() => mockPrismaClient)
@@ -17,7 +18,7 @@ describe('AppController', () => {
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
       controllers: [AppController],
-      providers: [AppService, PrismaService, CreateItemUseCase, { provide: ItemRepository, useClass: ItemPrismaRepository }],
+      providers: [AppService, PrismaService, CreateItemUseCase, GetItemUseCase, { provide: ItemRepository, useClass: ItemPrismaRepository }],
     }).compile();
 
     appController = app.get<AppController>(AppController);
