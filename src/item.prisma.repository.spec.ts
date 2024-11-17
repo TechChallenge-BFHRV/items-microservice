@@ -39,7 +39,6 @@ describe('ItemPrismaRepository', () => {
       expect(mockPrismaClient.item.findMany).toHaveBeenCalledWith({
         where: { category },
       });
-      console.log('result is: ', result);
       expect(result).toEqual(mockItems);
     });
 
