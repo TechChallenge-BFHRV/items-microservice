@@ -7,6 +7,7 @@ import { ItemRepository } from './item.repository';
 import { ItemPrismaRepository } from './item.prisma.repository';
 import { PrismaService } from './prisma.service';
 import { GetItemsPerCategoryUseCase } from './usecases/get-items-per-category.usecase';
+import { GetItemByIdUseCase } from './usecases/get-item-by-id.usecase';
 
 @Module({
   imports: [],
@@ -21,6 +22,7 @@ import { GetItemsPerCategoryUseCase } from './usecases/get-items-per-category.us
     CreateItemUseCase,
     GetItemUseCase,
     GetItemsPerCategoryUseCase,
+    GetItemByIdUseCase,
   ],
 })
 export class AppModule {}

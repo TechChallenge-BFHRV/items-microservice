@@ -32,8 +32,12 @@ export class ItemPrismaRepository implements ItemRepository {
     throw new Error('Method not implemented.');
   }
 
-  getById(id: number): Promise<Item> {
-    throw new Error('Method not implemented.');
+  async getById(id: number): Promise<Item> {
+    const item = await this.prisma.item.findUnique({
+      where: { id: id },
+    });
+    if (!item) throw new Error('Item not found!');
+    return item;
   }
 
   async getAll(): Promise<Item[]> {
