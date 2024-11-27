@@ -12,10 +12,7 @@ COPY nest-cli.json .
 COPY prisma ./prisma
 COPY test ./test
 
-RUN npx prisma generate
-
-
-RUN yarn run build
+RUN npx prisma generate && yarn run build
 
 
 FROM node:18-alpine AS production
