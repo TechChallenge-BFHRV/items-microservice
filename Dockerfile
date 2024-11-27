@@ -4,18 +4,21 @@ WORKDIR /usr/src/techchallenge-app/items-microservice
 
 COPY package*.json ./
 
-RUN yarn install
+RUN yarn install --ignore-scripts
 
-COPY . .
-
-RUN npx prisma generate
-
+COPY src ./src
+COPY tsconfig.json ./
+COPY nest-cli.json .
 COPY prisma ./prisma
+COPY test ./test
 
-RUN yarn run build
+RUN npx prisma generate && yarn run build
 
 
 FROM node:18-alpine AS production
+
+RUN addgroup -S nonroot \
+    && adduser -S nonroot -G nonroot
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
@@ -24,10 +27,10 @@ WORKDIR /usr/src/techchallenge-app/items-microservice
 
 COPY package*.json ./
 
-RUN yarn install --production
-
-COPY . .
+RUN yarn install --production --ignore-scripts
 
 COPY --from=development /usr/src/techchallenge-app/items-microservice/dist ./dist
-RUN npx prisma generate
+
+USER nonroot
+
 CMD [ "yarn", "run", "start:prod" ]

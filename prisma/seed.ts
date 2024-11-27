@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient();
 async function main() {
-  const coca = await prisma.item.upsert({
+  await prisma.item.upsert({
     where: { name: 'Coca-Cola' },
     update: {},
     create: {
@@ -12,7 +12,7 @@ async function main() {
       preparationTime: 20,
     },
   });
-  const sprite = await prisma.item.upsert({
+  await prisma.item.upsert({
     where: { name: 'Sprite' },
     update: {},
     create: {
@@ -23,7 +23,7 @@ async function main() {
       preparationTime: 20,
     },
   });
-  const hamburger = await prisma.item.upsert({
+  await prisma.item.upsert({
     where: { name: 'Hamburger' },
     update: {},
     create: {
@@ -35,7 +35,7 @@ async function main() {
       preparationTime: 600,
     },
   });
-  const coxinha = await prisma.item.upsert({
+  await prisma.item.upsert({
     where: { name: 'Coxinha' },
     update: {},
     create: {
@@ -47,7 +47,7 @@ async function main() {
       preparationTime: 300,
     },
   });
-  const fritas = await prisma.item.upsert({
+  await prisma.item.upsert({
     where: { name: 'Batata frita' },
     update: {},
     create: {
@@ -58,7 +58,7 @@ async function main() {
       preparationTime: 300,
     },
   });
-  const pudim = await prisma.item.upsert({
+  await prisma.item.upsert({
     where: { name: 'Pudim' },
     update: {},
     create: {
