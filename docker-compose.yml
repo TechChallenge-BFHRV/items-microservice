@@ -11,7 +11,7 @@ services:
       - 3000:3000
     volumes:
       - /usr/src/techchallenge-app/items-microservice/node_modules
-    command: sh -c "ls -la && yarn start:prod"
+    command: sh -c "yarn start:prod"
     depends_on:
       - items-database-db
     networks:

@@ -29,8 +29,10 @@ COPY package*.json ./
 
 RUN yarn install --production --ignore-scripts
 
-COPY --from=development /usr/src/techchallenge-app/items-microservice/dist ./dist
+COPY tsconfig.json ./
 
+COPY --from=development /usr/src/techchallenge-app/items-microservice/dist ./dist
+COPY --from=development /usr/src/techchallenge-app/items-microservice/prisma ./prisma
 USER nonroot
 
 CMD [ "yarn", "run", "start:prod" ]
