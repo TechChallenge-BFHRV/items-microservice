@@ -26,9 +26,9 @@
     "@nestjs/microservices": "^10.4.7",
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/swagger": "^8.0.7",
-    "@prisma/client": "5.22.0",
+    "@prisma/client": "5.14.0",
     "class-validator": "^0.14.1",
-    "prisma": "^5.22.0",
+    "prisma": "5.14.0",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
     "ts-node": "^10.9.2"
@@ -80,6 +80,6 @@
     "testEnvironment": "node"
   },
   "prisma": {
-    "seed": "ts-node dist/prisma/seed.js"
+    "seed": "ts-node prisma/seed.ts"
   }
 }

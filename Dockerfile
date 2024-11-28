@@ -33,6 +33,9 @@ COPY tsconfig.json ./
 
 COPY --from=development /usr/src/techchallenge-app/items-microservice/dist ./dist
 COPY --from=development /usr/src/techchallenge-app/items-microservice/prisma ./prisma
+
+RUN npx prisma generate
+
 USER nonroot
 
 CMD [ "yarn", "run", "start:prod" ]
