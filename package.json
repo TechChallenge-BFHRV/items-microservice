@@ -28,6 +28,7 @@
     "@nestjs/swagger": "^8.0.7",
     "@prisma/client": "5.14.0",
     "class-validator": "^0.14.1",
+    "jest-cucumber": "^4.5.0",
     "prisma": "5.14.0",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
@@ -62,7 +63,10 @@
       "ts"
     ],
     "rootDir": "src",
-    "testRegex": ".*\\.spec\\.ts$",
+    "testRegex": [
+      ".*\\.spec\\.ts$",
+      ".*\\.steps\\.ts$"
+    ],
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
