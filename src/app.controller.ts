@@ -22,7 +22,6 @@ export class AppController {
 
   @MessagePattern('get_items_per_category')
   getItemsPerCategory(category: ItemCategory) {
-    console.log('message pattern claled with category' , category);
     return this.appService.getItemsPerCategory(category);
   }
 
