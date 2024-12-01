@@ -79,6 +79,7 @@
       ".entity.ts",
       ".mapper.ts",
       ".module.ts",
+      ".service.ts",
       "main.ts"
     ],
     "testEnvironment": "node"

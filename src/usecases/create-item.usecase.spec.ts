@@ -31,4 +31,12 @@ describe('CreateItemUseCase', () => {
     expect(result).toEqual(sampleItem);
   });
 
+  it('should set preparationTime to 0 if it doesnt have a value', async () => {
+    const item = { ...sampleItem, preparationTime: undefined };
+    mockItemRepository.create.mockResolvedValue({ ...sampleItem, preparationTime: 0 });
+    const result = await createItemUseCase.execute(item);
+    expect(mockItemRepository.create).toHaveBeenCalledWith(item);
+    expect(result).toEqual(item);
+  });
+
 });
