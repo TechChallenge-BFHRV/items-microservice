@@ -9,14 +9,10 @@ import { AppService } from '../app.service';
 import { CreateItemUseCase } from '../usecases/create-item.usecase';
 import { GetItemUseCase } from '../usecases/get-item.usecase';
 import { GetItemByIdUseCase } from '../usecases/get-item-by-id.usecase';
+import { itemsArray } from './items-response-mock';
 
 const feature = loadFeature('./src/bdd/features/Items.feature');
 
-const itemsArray = [
-  {id: 1, name: 'Coke', description: '250ml', price: 10, createdAt: new Date(), updatedAt: new Date(), category: 'BEBIDA', preparationTime: 60},
-  {id: 2, name: 'Sprite', description: '250ml', price: 10, createdAt: new Date(), updatedAt: new Date(), category: 'BEBIDA', preparationTime: 60},
-  {id: 3, name: 'Fries', description: '300g', price: 15, createdAt: new Date(), updatedAt: new Date(), category: 'ACOMPANHAMENTO', preparationTime: 300},
-];
 
 const db = {
   item: {
